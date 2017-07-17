@@ -90,6 +90,16 @@ public:
         return m_size;
     }
 
+	void pop(std::size_t len)
+	{
+		assert(len < m_size);
+
+		if (m_data)
+		{
+			std::memmove(m_data, m_data + len, m_size - len);
+		}
+	}
+
     char* release()
     {
         char* tmp = m_data;
